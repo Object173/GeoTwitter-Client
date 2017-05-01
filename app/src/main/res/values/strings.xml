@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GeoTwitter</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="progress_dialog_title_loading">Loading</string>
+    <string name="activity_delete_avatar_label">Delete image</string>
+</resources>

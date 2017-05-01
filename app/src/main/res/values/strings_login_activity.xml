@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_login">Sign in</string>
+
+    <string name="prompt_login">Login</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_username">Username</string>
+    <string name="login_activity_title_sign_in">Sign in</string>
+    <string name="login_activity_title_register">Registration</string>
+    <string name="action_sign_out">Sign out</string>
+    <string name="error_invalid_login">This login is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing login
+        completions."
+    </string>
+
+    <string name="login_activity_message_user_not_found">User not found</string>
+    <string name="login_activity_message_incorrect_password">Incorrect password</string>
+    <string name="login_activity_message_wrong_password">Wrong password</string>
+    <string name="login_activity_message_incorrect_login">Incorrect login</string>
+    <string name="login_activity_message_user_is_exist">User is exist</string>
+    <string name="login_activity_message_no_internet">No internet connection</string>
+    <string name="login_activity_message_login_exists">This login is exists</string>
+    <string name="login_activity_message_error_database">Error database</string>
+    <string name="login_activity_message_login_is_short">Min length login is 5 symbols</string>
+    <string name="login_activity_message_error_server">Server is not responding</string>
+
+    <string name="sign_in_fragment_title">Sign in</string>
+    <string name="register_fragment_title">Register</string>
+
+    <string name="register_fragment_title_image_picker">Select your avatar</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="key_preference_enabled_sputnik" translatable="false">map_enabled_sputnik</string>
+
+    <bool name="preference_enabled_sputnik_default">false</bool>
+
+    <string name="title_activity_options">Options</string>
+
+    <string name="preference_title_main_category">Main</string>
+    <string name="preference_title_enabled_sputnik">Enabled sputnik view</string>
+</resources>

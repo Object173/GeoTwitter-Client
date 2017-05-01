@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "202104732297",
+    "firebase_url": "https://geotwitter-7b3d7.firebaseio.com",
+    "project_id": "geotwitter-7b3d7",
+    "storage_bucket": "geotwitter-7b3d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202104732297:android:81a1ab0f143f0f13",
+        "android_client_info": {
+          "package_name": "com.object173.geotwitter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202104732297-657vrli0fqkj1a9j1uvog64qqmsfc1cd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.object173.geotwitter",
+            "certificate_hash": "daf5b7e0649c678b352fe27ff621bb9750ce7944"
+          }
+        },
+        {
+          "client_id": "202104732297-ggrn57n22vp8p877rn8iqa009csac22s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD79W1CdC4lnvZAgN8-x08OgmzwYVsAToY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202104732297-ggrn57n22vp8p877rn8iqa009csac22s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
