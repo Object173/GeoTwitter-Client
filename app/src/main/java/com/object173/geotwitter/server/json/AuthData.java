@@ -10,18 +10,20 @@ public final class AuthData {
     private String username;
     private String login;
     private String password;
+    private String fcmToken;
 
     public AuthData() {
     }
 
-    public AuthData(String username, String login, String password) {
+    public AuthData(String username, String login, String password, String fcmToken) {
         this.username = username;
         this.login = login;
         this.password = password;
+        this.fcmToken = fcmToken;
     }
 
-    public AuthData(String login, String password) {
-        this(null, login, password);
+    public AuthData(String login, String password, String fcmToken) {
+        this(null, login, password, fcmToken);
     }
 
     public String getUsername() {
@@ -46,5 +48,13 @@ public final class AuthData {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFcmToken() {
+        return fcmToken;
+    }
+
+    public void setFcmToken(String fcmToken) {
+        this.fcmToken = fcmToken;
     }
 }

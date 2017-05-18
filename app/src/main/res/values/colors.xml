@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_primary">#3F51B5</color>
-    <color name="color_primary_dark">#00CC00</color>
     <color name="color_accent">#00CC00</color>
 
+    <color name="color_card_background">#FFFFFF</color>
+    <color name="submit_btn_ripple_color">#DDDDDD</color>
     <color name="color_border">#EEEEEE</color>
+
+    <color name="color_text_dark">#000000</color>
+    <color name="color_text_gray">#777777</color>
+
+    <color name="toolbar_color">#8BC34A</color>
+    <color name="toolbar_text_color">#FFFFFF</color>
+    <color name="toolbar_icon_color">#FFFFFF</color>
+    <color name="toolbar_accent_color">#FFFFFF</color>
+
+    <color name="toolbar_popup_background">#FFFFFF</color>
+    <color name="toolbar_popup_text_color">#000000</color>
+
+    <color name="status_bar_color">#8BC34A</color>
+
+    <color name="tabs_color">#8BC34A</color>
+    <color name="tabs_indicator_color">#FFFFFF</color>
+    <color name="tabs_text_color">#DDDDDD</color>
+    <color name="tabs_selected_color">#FFFFFF</color>
+
+    <color name="image_viewer_background">#000000</color>
+    <color name="transparent_toolbar_color">#66000000</color>
+
 </resources>

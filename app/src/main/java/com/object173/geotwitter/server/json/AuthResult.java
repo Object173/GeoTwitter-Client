@@ -1,8 +1,6 @@
 package com.object173.geotwitter.server.json;
 
-import java.io.Serializable;
-
-public class AuthResult implements Serializable{
+public class AuthResult {
 
     public enum Result {
         SUCCESS,
@@ -14,22 +12,26 @@ public class AuthResult implements Serializable{
         INCORRECT_PASSWORD,
         LOGIN_EXISTS,
         NULL_POINTER,
-        NO_INTERNET
+        NO_INTERNET,
+        ACCESS_DENIED
     }
 
     private Result result;
+
+    private AuthProfile profile;
     private AuthToken token;
 
     public AuthResult() {
     }
 
-    public AuthResult(Result result, AuthToken token) {
+    public AuthResult(final Result result, final AuthProfile profile, final AuthToken token) {
         this.result = result;
+        this.profile = profile;
         this.token = token;
     }
 
     public AuthResult(final Result result) {
-        this(result, null);
+        this(result, null, null);
     }
 
     public Result getResult() {
@@ -47,4 +49,13 @@ public class AuthResult implements Serializable{
     public void setToken(AuthToken token) {
         this.token = token;
     }
+
+    public AuthProfile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(AuthProfile profile) {
+        this.profile = profile;
+    }
 }
+

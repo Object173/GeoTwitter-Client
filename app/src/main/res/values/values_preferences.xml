@@ -6,6 +6,27 @@
 
     <string name="title_activity_options">Options</string>
 
-    <string name="preference_title_main_category">Main</string>
+    <string name="preference_title_map_category">Map</string>
     <string name="preference_title_enabled_sputnik">Enabled sputnik view</string>
+
+    <string name="preference_title_profile_category">Profile</string>
+
+    <string name="preference_title_notifications_category">Notifications</string>
+
+    <string name="preference_title_notifications_enabled">Enabled notifications</string>
+    <string name="key_preference_enabled_notifications">preference_key_enabled_notifications</string>
+    <bool name="preference_enabled_notifications_default">true</bool>
+
+    <string name="preference_title_notifications_sound_enabled">Enabled sound</string>
+    <string name="key_preference_enabled_notifications_sound">preference_key_enabled_notifications_sound</string>
+    <bool name="preference_enabled_notifications_sound_default">true</bool>
+
+    <string name="preference_title_notifications_vibration_enabled">Enabled vibration</string>
+    <string name="key_preference_enabled_notifications_vibration">preference_key_enabled_notifications_vibration</string>
+    <bool name="preference_enabled_notifications_vibration_default">true</bool>
+
+    <string name="preference_title_sound_notifications">Notification sound</string>
+    <string name="key_preference_sound_notifications">preference_key_notifications_sound</string>
+    <string name="preference_sound_notifications_default">content://settings/system/notification_sound</string>
+
 </resources>

@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
-
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -13,12 +8,16 @@
             android:id="@+id/register_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
 
             <com.object173.geotwitter.gui.views.CircleImageView
-                android:id="@+id/imageViewAvatar"
-                android:layout_width="@dimen/profile_avatar_width"
-                android:layout_height="@dimen/profile_avatar_height"
+                android:id="@+id/image_view_avatar"
+                android:layout_width="@dimen/large_avatar_size"
+                android:layout_height="@dimen/large_avatar_size"
                 civ_border_width = "@dimen/profile_avatar_border"
                 civ_border_color = "@color/color_border"
                 android:src="@mipmap/avatar"
@@ -62,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_password"
-                    android:imeActionId="@+id/login"
+                    android:imeActionId="@+id/register_button"
                     android:imeActionLabel="@string/login_activity_title_register"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"

@@ -19,7 +19,6 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
 import com.object173.geotwitter.R;
 
@@ -28,7 +27,7 @@ import com.object173.geotwitter.R;
  * on 28.04.2017.
  */
 
-public final class CircleImageView extends ImageView {
+public final class CircleImageView extends android.support.v7.widget.AppCompatImageView {
 
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
 

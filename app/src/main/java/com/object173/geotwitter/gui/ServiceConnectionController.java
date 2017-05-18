@@ -9,8 +9,8 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 
-import com.object173.geotwitter.services.BaseService;
-import com.object173.geotwitter.services.BaseServiceTask;
+import com.object173.geotwitter.service.BaseService;
+import com.object173.geotwitter.service.BaseServiceTask;
 
 /**
  * Created by Object173
@@ -20,8 +20,8 @@ import com.object173.geotwitter.services.BaseServiceTask;
 public final class ServiceConnectionController {
 
     private BaseService.MainBinder binder = null;
-    private final Class serviceClass;
-    private final String filterAction;
+    private final Class serviceClass = BaseService.class;
+    private final String filterAction = BaseService.ACTION;
 
     private static final String KEY_REQUEST_ID = "request_id";
     private long requestId = BaseService.NULL_ID;
@@ -32,11 +32,6 @@ public final class ServiceConnectionController {
         void receiveMessage(Intent intent);
         void finishTask(Intent intent);
         void finishTask(Class serviceClass);
-    }
-
-    public ServiceConnectionController(final Class serviceClass, final String filterAction) {
-        this.serviceClass = serviceClass;
-        this.filterAction = filterAction;
     }
 
     public final void onCreate(final Bundle savedInstanceState) {
@@ -71,9 +66,7 @@ public final class ServiceConnectionController {
 
         context.unregisterReceiver(broadcastReceiver);
         unbind(context);
-        if(connector != null) {
-            connector = null;
-        }
+        connector = null;
     }
 
     private void unbind(final Context context) {
@@ -83,11 +76,12 @@ public final class ServiceConnectionController {
         }
     }
 
-    public void setRequestId(final long requestId) {
-        this.requestId = requestId;
-        if(requestId <= BaseService.NULL_ID && connector != null) {
-            connector.finishTask(serviceClass);
+    public boolean setRequestId(final long requestId) {
+        if(requestId <= BaseService.NULL_ID) {
+            return false;
         }
+        this.requestId = requestId;
+        return true;
     }
 
     public boolean isTaskRunning() {

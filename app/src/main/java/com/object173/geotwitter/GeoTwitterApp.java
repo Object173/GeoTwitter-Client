@@ -3,6 +3,8 @@ package com.object173.geotwitter;
 import android.app.Application;
 
 import com.object173.geotwitter.server.ServerApi;
+import com.object173.geotwitter.util.resources.CacheManager;
+import com.object173.geotwitter.util.user.AuthManager;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -15,17 +17,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public final class GeoTwitterApp extends Application {
 
     private static ServerApi serverApi;
-    private Retrofit retrofit;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        retrofit = new Retrofit.Builder()
-                .baseUrl(ServerApi.HOST) //Базовая часть адреса
-                .addConverterFactory(GsonConverterFactory.create()) //Конвертер, необходимый для преобразования JSON'а в объекты
+        final Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ServerApi.HOST)
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        serverApi = retrofit.create(ServerApi.class); //Создаем объект, при помощи которого будем выполнять запросы
+        serverApi = retrofit.create(ServerApi.class);
+
+        CacheManager.onCreate(getBaseContext());
+        AuthManager.readCurrentUser(getBaseContext());
     }
 
     public static ServerApi getApi() {

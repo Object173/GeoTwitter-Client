@@ -40,6 +40,27 @@ public final class PreferencesManager {
         optionsPreference.edit().putString(key, value).apply();
     }
 
+    public static long getLongPreference(final Context context, final String key, final long defaultValue) {
+        if(context == null || key == null) {
+            return defaultValue;
+        }
+        try {
+            final SharedPreferences optionsPreference = PreferenceManager.getDefaultSharedPreferences(context);
+            return optionsPreference.getLong(key, defaultValue);
+        }
+        catch (Exception ex) {
+            return defaultValue;
+        }
+    }
+
+    public static void setLongPreference(final Context context, final String key, final long value) {
+        if(context == null || key == null) {
+            return;
+        }
+        final SharedPreferences optionsPreference = PreferenceManager.getDefaultSharedPreferences(context);
+        optionsPreference.edit().putLong(key, value).apply();
+    }
+
     public static boolean getBooleanPreference(final Context context, final String key, final boolean defaultValue) {
         if(context == null || key == null) {
             return defaultValue;

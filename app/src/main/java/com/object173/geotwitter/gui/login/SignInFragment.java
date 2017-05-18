@@ -13,8 +13,8 @@ import com.object173.geotwitter.R;
 import com.object173.geotwitter.gui.ServiceConnectionController;
 import com.object173.geotwitter.gui.base.MyBaseFragment;
 import com.object173.geotwitter.server.json.AuthResult;
-import com.object173.geotwitter.services.authorization.AuthService;
-import com.object173.geotwitter.services.authorization.SignInTask;
+import com.object173.geotwitter.service.authorization.AuthService;
+import com.object173.geotwitter.service.authorization.SignInTask;
 
 /**
  * Created by Object173
@@ -25,7 +25,7 @@ public final class SignInFragment extends MyBaseFragment
         implements View.OnClickListener, ServiceConnectionController.ServiceConnector{
 
     private final ServiceConnectionController serviceController =
-            new ServiceConnectionController(AuthService.class, AuthService.ACTION);
+            new ServiceConnectionController();
 
     private EditText mLoginField;
     private EditText mPasswordField;
@@ -67,8 +67,10 @@ public final class SignInFragment extends MyBaseFragment
         if (getContext() == null || !validateForm()) {
             return;
         }
-        showProgressDialog();
-        serviceController.setRequestId(AuthService.startToSignIn(getContext(), email, password));
+
+        if(serviceController.setRequestId(AuthService.startToSignIn(getContext(), email, password))) {
+            showProgressDialog();
+        }
     }
 
     private boolean validateForm() {

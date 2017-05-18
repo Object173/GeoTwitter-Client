@@ -5,17 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.object173.geotwitter.gui.options.OptionsActivity">
+    tools:context="com.object173.geotwitter.gui.options.OptionsMenuActivity">
 
-    <include layout="@layout/toolbar" />
-
-    <fragment
-        android:id="@+id/options_fragment"
-        android:name="com.object173.geotwitter.gui.options.OptionsFragment"
+    <android.support.design.widget.AppBarLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        tools:layout="@xml/fragment_preference"
-        android:layout_weight="1">
-    </fragment>
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/toolbar" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

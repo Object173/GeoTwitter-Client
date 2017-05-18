@@ -1,65 +1,47 @@
 package com.object173.geotwitter.database;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
 /**
  * Created by Object173
  * on 26.04.2017.
  */
 
-public final class DatabaseHelper {
+public final class DatabaseHelper extends SQLiteOpenHelper {
 
-    /*public static void writeUser(final User user, final String userId) {
-        if(user == null || userId == null) {
+    private static final int NULL_ID = DatabaseContract.NULL_ID;
+
+    DatabaseHelper(final Context context) {
+        super(context, DatabaseContract.DATABASE_NAME, null, DatabaseContract.DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        if(sqLiteDatabase == null) {
             return;
         }
-        if(user.getAvatar() == null) {
-            final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-            mDatabase.child(User.TABLE_NAME).child(userId).setValue(user);
-        }
-        else {
-            final FirebaseStorage mFirebaseStorage = FirebaseStorage.getInstance();
-            final StorageReference reference = mFirebaseStorage.getReference();
 
-            final Uri file = Uri.parse(user.getAvatar());
-            final StorageReference avatarRef = reference.child(
-                    DatabaseContract.getReferenceImages(AvatarManager.getFilenameAvatar(user.getLogin())));
+        final String[] createTable = DatabaseContract.SQL_CREATE_TABLE_ARRAY;
 
-            final UploadTask uploadTask = avatarRef.putFile(file);
-
-            uploadTask.addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    user.setAvatar(null);
-                    final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-                    mDatabase.child(User.TABLE_NAME).child(userId).setValue(user);
-                }
-            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    user.setAvatar(taskSnapshot.getDownloadUrl().toString());
-                    final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-                    mDatabase.child(User.TABLE_NAME).child(userId).setValue(user);
-                }
-            });
+        for (final String aCreateTable : createTable) {
+            sqLiteDatabase.execSQL(aCreateTable);
         }
     }
 
-    public static void isUserExists(final String login, final ValueEventListener listener) {
-        if(login == null || listener == null) {
+    @Override
+    public void onUpgrade(final SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        if(sqLiteDatabase == null) {
             return;
         }
-        final Query query = FirebaseDatabase.getInstance().getReference()
-                .child(User.TABLE_NAME).orderByChild(User.FIELD_LOGIN).equalTo(login);
-        query.addListenerForSingleValueEvent(listener);
-    }
 
-    public static boolean readUser(final String userId, final ChildEventListener listener) {
-        if(userId == null || listener == null) {
-            return false;
+        final String[] deleteTable = DatabaseContract.SQL_DELETE_TABLE_ARRAY;
+
+        for(final String delete: deleteTable) {
+            sqLiteDatabase.execSQL(delete);
         }
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference()
-                .child(User.TABLE_NAME);
-        mDatabase.addChildEventListener(listener);
 
-        return true;
-    }*/
+        onCreate(sqLiteDatabase);
+    }
 }

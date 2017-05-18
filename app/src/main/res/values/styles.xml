@@ -1,7 +1,8 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
-        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/toolbar_color</item>
+        <item name="colorPrimaryDark">@color/status_bar_color</item>
         <item name="colorAccent">@color/color_accent</item>
     </style>
 
@@ -10,8 +11,78 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar"/>
+    <style name="ActionBarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorPrimary">@color/toolbar_color</item>
+        <item name="colorAccent">@color/toolbar_accent_color</item>
+        <item name="android:textColorPrimary">@color/toolbar_text_color</item>
+        <item name="colorControlNormal">@color/toolbar_icon_color</item>
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="ActionBarPopupTheme" parent="@style/Widget.AppCompat.Light.PopupMenu">
+        <item name="android:background">@color/toolbar_popup_background</item>
+        <item name="android:textColor">@color/toolbar_popup_text_color</item>
+    </style>
+
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/tabs_indicator_color</item>
+        <item name="tabBackground">@color/tabs_color</item>
+        <item name="tabTextAppearance">@style/MyCustomTabTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/tabs_selected_color</item>
+    </style>
+
+    <style name="MyCustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/tabs_text_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="NavigationTheme" parent="@style/Widget.Design.NavigationView">
+        <item name="android:itemTextAppearance">@style/NavigationMenuTextAppearance</item>
+    </style>
+
+    <style name="NavigationMenuTextAppearance" parent="TextAppearance.AppCompat.Menu">
+        <item name="android:textSize">@dimen/menu_text_size</item>
+    </style>
+
+    <style name="ImageViewerTheme" parent="AppTheme.NoActionBar">
+        <item name="colorPrimaryDark">@color/image_viewer_background</item>
+    </style>
+
+    <style name="TransparentToolbarTheme" parent="ActionBarTheme">
+        <item name="colorPrimary">@color/transparent_toolbar_color</item>
+    </style>
+
+    <style name="MyCardViewStyle" parent="AppTheme">
+        <item name="cardElevation">2dp</item>
+        <item name="cardBackgroundColor">@color/color_card_background</item>
+    </style>
+
+    <style name="UsernameDark" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/color_text_dark</item>
+        <item name="android:textSize">@dimen/header_text_username_size</item>
+    </style>
+
+    <style name="StatusDark" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/color_text_dark</item>
+        <item name="android:textSize">@dimen/header_text_status_size</item>
+    </style>
+
+    <style name="TitleListItem" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/list_item_title_size</item>
+        <item name="android:textColor">@color/color_text_dark</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SubtitleListItem" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/list_item_sub_size</item>
+        <item name="android:textColor">@color/color_text_gray</item>
+    </style>
+
+    <style name="DateListItem" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/list_item_date_size</item>
+        <item name="android:textColor">@color/color_text_gray</item>
+    </style>
 
 </resources>

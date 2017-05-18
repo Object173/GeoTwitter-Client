@@ -23,8 +23,8 @@ public abstract class MyBaseActivity extends AppCompatActivity {
 
     protected final boolean onCreate(final Bundle savedInstanceState, final int contentId,
                                      final String title) {
+        super.onCreate(savedInstanceState);
         try {
-            super.onCreate(savedInstanceState);
             contentView = getLayoutInflater().inflate(contentId, null);
             setContentView(contentView);
         } catch (Exception ex) {
@@ -54,18 +54,12 @@ public abstract class MyBaseActivity extends AppCompatActivity {
 
     protected final boolean onCreate(final Bundle savedInstanceState, final int contentId,
                                      final boolean buttonHomeEnabled) {
-        boolean isCreateBaseActivity = onCreate(savedInstanceState, contentId,
-                getString(R.string.app_name));
+        boolean isCreateBaseActivity = onCreate(savedInstanceState, contentId, null);
 
         if (isCreateBaseActivity) {
             setButtonHomeEnabled(buttonHomeEnabled);
         }
         return isCreateBaseActivity;
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
     }
 
     private void setButtonHomeEnabled(final boolean enabled) {
@@ -87,6 +81,17 @@ public abstract class MyBaseActivity extends AppCompatActivity {
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(title);
+        }
+    }
+
+    public final void setToolbarPadding() {
+        final ActionBar actionBar = getSupportActionBar();
+        if (toolbar != null) {
+            final int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
+            if (resourceId > 0) {
+                final int padding = getResources().getDimensionPixelSize(resourceId);
+                toolbar.setPadding(0, padding, 0, 0);
+            }
         }
     }
 

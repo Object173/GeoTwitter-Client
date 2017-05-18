@@ -1,33 +1,31 @@
 package com.object173.geotwitter.server.json;
 
-import java.io.Serializable;
+public class AuthToken {
 
-public class AuthToken implements Serializable{
-
-    private long user_id;
-    private String hash_key;
+    private long userId;
+    private String hashKey;
 
     public AuthToken() {
     }
 
-    public AuthToken(long user_id, String hash_key) {
-        this.user_id = user_id;
-        this.hash_key = hash_key;
+    public AuthToken(long userId, String hashKey) {
+        this.userId = userId;
+        this.hashKey = hashKey;
     }
 
-    public long getUser_id() {
-        return user_id;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
-    public String getHash_key() {
-        return hash_key;
+    public String getHashKey() {
+        return hashKey;
     }
 
-    public void setHash_key(String hash_key) {
-        this.hash_key = hash_key;
+    public void setHashKey(String hashKey) {
+        this.hashKey = hashKey;
     }
 }
