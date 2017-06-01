@@ -1,5 +1,6 @@
 package com.object173.geotwitter.gui.login;
 
+import android.accounts.AccountAuthenticatorResponse;
 import android.accounts.AccountManager;
 import android.content.Intent;
 import android.net.Uri;
@@ -8,21 +9,29 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
 import com.object173.geotwitter.R;
-import com.object173.geotwitter.gui.DeleteImageActivity;
 import com.object173.geotwitter.gui.base.MyBaseActivity;
+import com.object173.geotwitter.gui.util.DeleteImageActivity;
+import com.object173.geotwitter.service.authorization.AuthAccount;
 import com.object173.geotwitter.util.resources.CacheManager;
-import com.object173.geotwitter.util.resources.ChooseImageManager;
+import com.object173.geotwitter.util.resources.ChooserManager;
 import com.object173.geotwitter.util.resources.ImagesManager;
 import com.object173.geotwitter.util.user.AuthManager;
 import com.soundcloud.android.crop.Crop;
 
 public class LoginActivity extends MyBaseActivity {
 
-    private String accountType;
+    public final static String PARAM_USER_PASS = "USER_PASS";
 
-    public static final String ARG_ACCOUNT_TYPE = "ARG_ACCOUNT_TYPE";
-    public static final String ARG_TOKEN_TYPE = "ARG_TOKEN_TYPE";
-    public static final String ARG_IS_ADDING_NEW_ACCOUNT = "ARG_IS_ADDING_NEW_ACCOUNT";
+    private AccountAuthenticatorResponse mAccountAuthenticatorResponse = null;
+    private Bundle mResultBundle = null;
+
+    private AccountManager mAccountManager;
+    private String mAuthTokenType;
+
+    public final static String ARG_ACCOUNT_TYPE = "ACCOUNT_TYPE";
+    public final static String ARG_AUTH_TYPE = "AUTH_TYPE";
+    public final static String ARG_ACCOUNT_NAME = "ACCOUNT_NAME";
+    public final static String ARG_TOKEN_TYPE = "TOKEN_TYPE";
 
     private OnChangeAvatarListener listener;
 
@@ -30,7 +39,18 @@ public class LoginActivity extends MyBaseActivity {
     public final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState, R.layout.activity_login, null);
 
-        accountType = getIntent().getStringExtra(AccountManager.KEY_ACCOUNT_TYPE);
+        mAccountAuthenticatorResponse =
+                getIntent().getParcelableExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
+        if (mAccountAuthenticatorResponse != null) {
+            mAccountAuthenticatorResponse.onRequestContinued();
+        }
+
+        mAccountManager = AccountManager.get(getBaseContext());
+
+        mAuthTokenType = getIntent().getStringExtra(ARG_AUTH_TYPE);
+        if (mAuthTokenType == null) {
+            mAuthTokenType = AuthAccount.TOKEN_FULL_ACCESS;
+        }
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.login_activity_viewpager);
         final LoginPagerAdapter adapter = new LoginPagerAdapter(getSupportFragmentManager(),
@@ -45,15 +65,15 @@ public class LoginActivity extends MyBaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        finishSignIn();
+        //finishSignIn();
     }
 
     public void finishSignIn() {
         if(AuthManager.isAuth()) {
             hideProgressDialog();
-            createAccount();
-            //finish();
-            //startActivity(new Intent(this, MainActivity.class));
+
+            setResult(RESULT_OK);
+            finish();
         }
     }
 
@@ -63,10 +83,10 @@ public class LoginActivity extends MyBaseActivity {
 
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-        if(requestCode == ChooseImageManager.INTENT_PICK_IMAGE) {
+        if(requestCode == ChooserManager.INTENT_PICK_IMAGE) {
             if(resultCode == RESULT_OK) {
-                final Uri uri = ChooseImageManager.getImageUri(this, data);
-                ChooseImageManager.selectImage(this, uri, CacheManager.getImagePath(RegisterFragment.CACHE_AVATAR));
+                final Uri uri = ChooserManager.getImageUri(this, data);
+                ChooserManager.selectImage(this, uri, CacheManager.getImagePath(RegisterFragment.CACHE_AVATAR));
             }
             else
             if(resultCode == DeleteImageActivity.RESULT_ACTIVITY) {
@@ -88,18 +108,17 @@ public class LoginActivity extends MyBaseActivity {
         void setAvatar(boolean isAvatar);
     }
 
-    public void createAccount(){
-
-        final Bundle data = new Bundle();
-        data.putString(AccountManager.KEY_ACCOUNT_NAME, String.valueOf(AuthManager.getAuthToken().getUserId()));
-        data.putString(AccountManager.KEY_ACCOUNT_TYPE, accountType);
-        data.putString(AccountManager.KEY_AUTHTOKEN, AuthManager.getAuthToken().getHashKey());
-
-        final Intent result = new Intent();
-        result.putExtras(data);
-
-        setResult(RESULT_OK, result);
-        finish();
+    @Override
+    public void finish() {
+        if (mAccountAuthenticatorResponse != null) {
+            if (mResultBundle != null) {
+                mAccountAuthenticatorResponse.onResult(mResultBundle);
+            } else {
+                mAccountAuthenticatorResponse.onError(AccountManager.ERROR_CODE_CANCELED, "canceled");
+            }
+            mAccountAuthenticatorResponse = null;
+        }
+        super.finish();
     }
 }
 

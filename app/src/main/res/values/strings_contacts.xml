@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_add_contact_title">Add contacts</string>
+
+    <string name="message_success_send_invite">Invite send success</string>
+    <string name="message_success_remove_invite">Contact remove success</string>
+</resources>

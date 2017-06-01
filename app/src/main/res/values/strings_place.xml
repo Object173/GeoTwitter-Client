@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_place_activity_label">Add news place</string>
+    <string name="place_activity_label">Place</string>
+    <string name="place_list_activity_label">Place feed</string>
+
+    <string name="place_title_hint">Title</string>
+    <string name="place_body_hint">Description</string>
+
+    <string name="title_button_edit_location">Edit location</string>
+    <string name="title_button_remove_location">Remove location</string>
+
+    <string name="add_place_activity_error_min_length">Min length is </string>
+
+    <string name="add_place_activity_title_image_chooser">Select place image</string>
+
+    <string name="place_distance_m">m</string>
+    <string name="place_distance_km">km</string>
+</resources>

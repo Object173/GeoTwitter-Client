@@ -3,6 +3,7 @@ package com.object173.geotwitter;
 import android.app.Application;
 
 import com.object173.geotwitter.server.ServerApi;
+import com.object173.geotwitter.server.ServerContract;
 import com.object173.geotwitter.util.resources.CacheManager;
 import com.object173.geotwitter.util.user.AuthManager;
 
@@ -22,11 +23,12 @@ public final class GeoTwitterApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        final Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ServerApi.HOST)
+        final Retrofit retrofit = new Retrofit.Builder() //новая фабрика контекста
+                .baseUrl(ServerContract.HOST) //задаем доменное имя сервера
+                //фабрика преобразования JSON объектов
                 .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        serverApi = retrofit.create(ServerApi.class);
+                .build(); //создаем объект контекста библиотеки
+        serverApi = retrofit.create(ServerApi.class); //задаем интерфейс API
 
         CacheManager.onCreate(getBaseContext());
         AuthManager.readCurrentUser(getBaseContext());

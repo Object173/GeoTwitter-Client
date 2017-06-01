@@ -8,11 +8,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-/**
- * Created by Object173
- * on 30.03.2017.
- */
-
 public abstract class MyDialogFragment extends DialogFragment {
 
     protected String fragmentTag = "MyDialogFragment";

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile_activity_label">Профиль</string>
+
+    <string name="profile_activity_title_edit_username">Изменить имя</string>
+    <string name="profile_activity_title_edit_status">Изменить статус</string>
+    <string name="profile_activity_title_edit_password_button">Изменить пароль</string>
+
+    <string name="profile_activity_title_username">Имя пользователя</string>
+    <string name="profile_activity_title_status">Статус</string>
+    <string name="profile_activity_title_password">Пароль</string>
+    <string name="profile_activity_title_place_list">Лента новостей</string>
+
+    <string name="profile_activity_title_menu">Пользовательская информация</string>
+
+    <string name="edit_dialog_error_min_length">Минимальная длина </string>
+    <string name="edit_dialog_error_max_length">Максимальная длина </string>
+
+    <string name="profile_activity_message_place_access_denied">Новостная лента не доступна</string>
+
+    <string name="password_dialog_title">Изменение пароля</string>
+    <string name="password_dialog_hint_old_password">Старый пароль</string>
+    <string name="password_dialog_hint_new_password">Новый пароль</string>
+    <string name="password_dialog_hint_conform_password">Подтверждение пароля</string>
+
+    <string name="password_dialog_error_conform_password">Пароли не совпадают</string>
+
+    <string name="profile_login_null">Имя пользователя</string>
+</resources>

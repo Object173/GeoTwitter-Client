@@ -10,23 +10,65 @@
     <string name="preference_title_enabled_sputnik">Enabled sputnik view</string>
 
     <string name="preference_title_profile_category">Profile</string>
-
     <string name="preference_title_notifications_category">Notifications</string>
 
+    <string name="preference_title_load_category">Load</string>
+    <string name="preference_title_gps_category">GPS</string>
+
     <string name="preference_title_notifications_enabled">Enabled notifications</string>
-    <string name="key_preference_enabled_notifications">preference_key_enabled_notifications</string>
+    <string name="key_preference_enabled_notifications" translatable="false">preference_key_enabled_notifications</string>
     <bool name="preference_enabled_notifications_default">true</bool>
 
     <string name="preference_title_notifications_sound_enabled">Enabled sound</string>
-    <string name="key_preference_enabled_notifications_sound">preference_key_enabled_notifications_sound</string>
+    <string name="key_preference_enabled_notifications_sound" translatable="false">preference_key_enabled_notifications_sound</string>
     <bool name="preference_enabled_notifications_sound_default">true</bool>
 
     <string name="preference_title_notifications_vibration_enabled">Enabled vibration</string>
-    <string name="key_preference_enabled_notifications_vibration">preference_key_enabled_notifications_vibration</string>
+    <string name="key_preference_enabled_notifications_vibration" translatable="false">preference_key_enabled_notifications_vibration</string>
     <bool name="preference_enabled_notifications_vibration_default">true</bool>
 
     <string name="preference_title_sound_notifications">Notification sound</string>
-    <string name="key_preference_sound_notifications">preference_key_notifications_sound</string>
-    <string name="preference_sound_notifications_default">content://settings/system/notification_sound</string>
+    <string name="key_preference_sound_notifications" translatable="false">preference_key_notifications_sound</string>
+    <string name="preference_sound_notifications_default" translatable="false">content://settings/system/notification_sound</string>
+
+    <string name="key_preference_block_size" translatable="false">preference_key_block_size</string>
+    <string name="preference_title_block_size_dialog">Load block size</string>
+    <string name="preference_summary_block_size_dialog">Choose block size</string>
+
+    <integer name="preference_block_size_default">15</integer>
+    <integer name="preference_block_size_min">10</integer>
+    <integer name="preference_block_size_max">25</integer>
+    <string name="preference_summary_block_size">Current size: </string>
+
+    <string name="key_preference_list_size" translatable="false">preference_key_list_size</string>
+    <string name="preference_title_list_size_dialog">Place list size</string>
+    <string name="preference_summary_list_size_dialog">Choose list size</string>
+
+    <integer name="preference_list_size_default">75</integer>
+    <integer name="preference_list_size_min">50</integer>
+    <integer name="preference_list_size_max">100</integer>
+    <string name="preference_summary_list_size">Current size: </string>
+
+    <string name="preference_title_location_enabled">Enabled geo location</string>
+    <string name="key_preference_enabled_location" translatable="false">preference_key_enabled_location</string>
+    <bool name="preference_enabled_location_default">true</bool>
+
+    <string name="key_preference_location_timer" translatable="false">preference_key_location_timer</string>
+    <string name="preference_title_location_timer_dialog">Location timer (sec)</string>
+    <string name="preference_summary_location_timer_dialog">Choose timer interval</string>
+
+    <integer name="preference_location_timer_default">30</integer>
+    <integer name="preference_location_timer_min">1</integer>
+    <integer name="preference_location_timer_max">60</integer>
+    <string name="preference_summary_location_timer">Current interval (sec): </string>
+
+    <string name="key_preference_location_distance" translatable="false">preference_key_location_distance</string>
+    <string name="preference_title_location_distance_dialog">Location distance (m)</string>
+    <string name="preference_summary_location_distance_dialog">Choose location distance</string>
+
+    <integer name="preference_location_distance_default">50</integer>
+    <integer name="preference_location_distance_min">1</integer>
+    <integer name="preference_location_distance_max">100</integer>
+    <string name="preference_summary_location_distance">Current distance (m): </string>
 
 </resources>

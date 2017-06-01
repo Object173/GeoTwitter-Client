@@ -6,12 +6,7 @@ import android.preference.PreferenceManager;
 
 import com.google.android.gms.maps.model.CameraPosition;
 import com.object173.geotwitter.R;
-import com.object173.geotwitter.map.CameraState;
-
-/**
- * Created by Object173
- * on 24.04.2017.
- */
+import com.object173.geotwitter.gui.util.CameraState;
 
 public final class PreferencesManager {
 
@@ -53,12 +48,25 @@ public final class PreferencesManager {
         }
     }
 
-    public static void setLongPreference(final Context context, final String key, final long value) {
+    public static int getIntPreference(final Context context, final String key, final int defaultValue) {
+        if(context == null || key == null) {
+            return defaultValue;
+        }
+        try {
+            final SharedPreferences optionsPreference = PreferenceManager.getDefaultSharedPreferences(context);
+            return optionsPreference.getInt(key, defaultValue);
+        }
+        catch (Exception ex) {
+            return defaultValue;
+        }
+    }
+
+    public static void setIntPreference(final Context context, final String key, final int value) {
         if(context == null || key == null) {
             return;
         }
         final SharedPreferences optionsPreference = PreferenceManager.getDefaultSharedPreferences(context);
-        optionsPreference.edit().putLong(key, value).apply();
+        optionsPreference.edit().putInt(key, value).apply();
     }
 
     public static boolean getBooleanPreference(final Context context, final String key, final boolean defaultValue) {

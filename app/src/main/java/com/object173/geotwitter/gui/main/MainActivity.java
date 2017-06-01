@@ -1,10 +1,5 @@
 package com.object173.geotwitter.gui.main;
 
-import android.accounts.AccountManager;
-import android.accounts.AccountManagerCallback;
-import android.accounts.AccountManagerFuture;
-import android.accounts.AuthenticatorException;
-import android.accounts.OperationCanceledException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,30 +11,38 @@ import android.view.View;
 
 import com.object173.geotwitter.R;
 import com.object173.geotwitter.gui.base.MyBaseActivity;
+import com.object173.geotwitter.gui.choose.ChooseContactActivity;
 import com.object173.geotwitter.gui.contacts.AddContactActivity;
-import com.object173.geotwitter.gui.options.OptionsMenuActivity;
-import com.object173.geotwitter.service.authorization.AuthAccount;
-
-import java.io.IOException;
+import com.object173.geotwitter.gui.map.MapsActivity;
+import com.object173.geotwitter.gui.options.AccountActivity;
+import com.object173.geotwitter.gui.options.OptionsActivity;
+import com.object173.geotwitter.gui.place.AddPlaceActivity;
+import com.object173.geotwitter.service.messenger.MessengerService;
+import com.object173.geotwitter.util.user.AuthManager;
 
 public class MainActivity extends MyBaseActivity implements TabLayout.OnTabSelectedListener {
 
     private FloatingActionButton fab;
+    private static final int VIEW_PAGER_OFFSCREEN = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(!super.onCreate(savedInstanceState, R.layout.activity_main, false)) {
+        if(!super.onCreate(savedInstanceState, R.layout.activity_main, true)) {
             finish();
             return;
         }
 
-        verificationAccount();
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setHomeAsUpIndicator(android.R.drawable.ic_menu_mapmode);
+        }
 
         fab = (FloatingActionButton) findViewById(R.id.fab_button);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setOffscreenPageLimit(VIEW_PAGER_OFFSCREEN);
         final MainPagerAdapter pagerAdapter = new MainPagerAdapter(getSupportFragmentManager(),
-                new String[]{getString(R.string.dialogs_list_fragment_title),
+                new String[]{getString(R.string.places_list_fragment_title),
+                        getString(R.string.dialogs_list_fragment_title),
                         getString(R.string.contacts_list_fragment_title)});
 
         viewPager.setAdapter(pagerAdapter);
@@ -49,6 +52,12 @@ public class MainActivity extends MyBaseActivity implements TabLayout.OnTabSelec
         tabLayout.addOnTabSelectedListener(this);
 
         setFabState(viewPager.getCurrentItem());
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        AuthManager.onStart(this);
     }
 
     @Override
@@ -64,8 +73,14 @@ public class MainActivity extends MyBaseActivity implements TabLayout.OnTabSelec
         }
 
         switch(item.getItemId()) {
+            case android.R.id.home:
+                startActivity(new Intent(this, MapsActivity.class));
+                return true;
             case R.id.action_options:
-                startActivity(new Intent(this, OptionsMenuActivity.class));
+                startActivity(new Intent(this, OptionsActivity.class));
+                return true;
+            case R.id.action_profile:
+                startActivity(new Intent(this, AccountActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -75,10 +90,25 @@ public class MainActivity extends MyBaseActivity implements TabLayout.OnTabSelec
     private void setFabState(final int position) {
         switch (position) {
             case 0:
-                fab.setImageResource(R.mipmap.ic_message_white);
-                fab.setOnClickListener(null);
+                fab.setImageResource(R.mipmap.ic_add_location_white);
+                fab.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(getBaseContext(), AddPlaceActivity.class));
+                    }
+                });
                 break;
             case 1:
+                fab.setImageResource(R.mipmap.ic_message_white);
+                fab.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivityForResult(new Intent(MainActivity.this, ChooseContactActivity.class),
+                                ChooseContactActivity.REQUEST_CODE);
+                    }
+                });
+                break;
+            case 2:
                 fab.setImageResource(R.mipmap.ic_add_contact_white);
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -87,25 +117,6 @@ public class MainActivity extends MyBaseActivity implements TabLayout.OnTabSelec
                     }
                 });
                 break;
-        }
-    }
-
-    private void verificationAccount() {
-        final AccountManager am = AccountManager.get(this);
-        if (am.getAccountsByType(AuthAccount.TYPE).length == 0) {
-            am.addAccount(AuthAccount.TYPE, AuthAccount.TOKEN_FULL_ACCESS, null, null, this,
-                    new AccountManagerCallback<Bundle>() {
-                        @Override
-                        public void run(AccountManagerFuture<Bundle> future) {
-                            try {
-                                future.getResult();
-                            } catch (OperationCanceledException | IOException | AuthenticatorException e) {
-                                e.printStackTrace();
-                                MainActivity.this.finish();
-                            }
-                        }
-                    }, null
-            );
         }
     }
 
@@ -122,5 +133,14 @@ public class MainActivity extends MyBaseActivity implements TabLayout.OnTabSelec
 
     @Override
     public void onTabReselected(final TabLayout.Tab tab) {
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == ChooseContactActivity.REQUEST_CODE && resultCode == RESULT_OK) {
+            final long contactId = ChooseContactActivity.getContactId(data);
+            MessengerService.startToGetDialog(MainActivity.this, contactId);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

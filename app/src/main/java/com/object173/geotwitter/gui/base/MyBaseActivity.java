@@ -5,11 +5,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.object173.geotwitter.R;
-import com.object173.geotwitter.gui.ProgressDialogFragment;
+import com.object173.geotwitter.gui.dialog.ProgressDialogFragment;
+import com.object173.geotwitter.server.json.AuthResult;
 
 /**
  * Created by Object173
@@ -28,10 +30,10 @@ public abstract class MyBaseActivity extends AppCompatActivity {
             contentView = getLayoutInflater().inflate(contentId, null);
             setContentView(contentView);
         } catch (Exception ex) {
+            ex.printStackTrace();
             finish();
             return false;
         }
-
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             if (title != null) {
@@ -118,11 +120,21 @@ public abstract class MyBaseActivity extends AppCompatActivity {
     }
 
     public final void showSnackbar(final int message, final boolean isLong) {
+        Log.d("BaseActivity","showSnackbar");
         if(contentView == null) {
             return;
         }
-        Snackbar.make(contentView, message, isLong?Snackbar.LENGTH_LONG:Snackbar.LENGTH_SHORT)
+        Snackbar.make(contentView, message, isLong ? Snackbar.LENGTH_LONG : Snackbar.LENGTH_SHORT)
                 .setAction("Action", null).show();
+    }
+
+    protected void showReceiveResult(final AuthResult.Result result) {
+        if(result.equals(AuthResult.Result.NO_INTERNET)) {
+            showSnackbar(R.string.login_activity_message_no_internet, false);
+        } else
+        if(result.equals(AuthResult.Result.FAIL)) {
+            showSnackbar(R.string.login_activity_message_error_server, false);
+        }
     }
 
     @Override

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile_activity_label">Profile</string>
+
+    <string name="profile_activity_title_edit_username">Edit username</string>
+    <string name="profile_activity_title_edit_status">Edit status</string>
+    <string name="profile_activity_title_edit_password_button">Edit password</string>
+
+    <string name="profile_activity_title_username">Username</string>
+    <string name="profile_activity_title_status">Status</string>
+    <string name="profile_activity_title_password">Password</string>
+    <string name="profile_activity_title_place_list">Place feed</string>
+
+    <string name="profile_activity_title_menu">Profile information</string>
+
+    <string name="edit_dialog_error_min_length">Min length is </string>
+    <string name="edit_dialog_error_max_length">Max length is </string>
+
+    <string name="profile_activity_message_place_access_denied">Place feed is not available</string>
+
+    <string name="password_dialog_title">Edit password</string>
+    <string name="password_dialog_hint_old_password">Old password</string>
+    <string name="password_dialog_hint_new_password">New password</string>
+    <string name="password_dialog_hint_conform_password">Conform password</string>
+
+    <string name="password_dialog_error_conform_password">Password is not conform</string>
+
+    <string name="profile_login_null">Username</string>
+</resources>

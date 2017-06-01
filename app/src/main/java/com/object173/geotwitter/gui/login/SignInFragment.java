@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.object173.geotwitter.R;
-import com.object173.geotwitter.gui.ServiceConnectionController;
 import com.object173.geotwitter.gui.base.MyBaseFragment;
+import com.object173.geotwitter.gui.util.ServiceConnectionController;
 import com.object173.geotwitter.server.json.AuthResult;
 import com.object173.geotwitter.service.authorization.AuthService;
 import com.object173.geotwitter.service.authorization.SignInTask;

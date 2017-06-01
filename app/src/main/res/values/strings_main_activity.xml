@@ -2,4 +2,5 @@
 <resources>
     <string name="dialogs_list_fragment_title">Dialogs</string>
     <string name="contacts_list_fragment_title">Contacts</string>
+    <string name="places_list_fragment_title">News</string>
 </resources>

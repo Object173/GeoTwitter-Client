@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="@dimen/image_list_item_width"
+    android:layout_height="@dimen/image_list_item_height"
+    android:layout_margin="@dimen/image_list_item_margin"
+    android:background="@color/light_background">
+
+    <ImageButton
+        android:id="@+id/add_button"
+        android:layout_width="@dimen/image_list_item_width"
+        android:layout_height="@dimen/image_list_item_height"
+        android:clickable="true"
+        android:background="?android:selectableItemBackground"
+        android:src="@android:drawable/ic_menu_add"/>
+
+</LinearLayout>

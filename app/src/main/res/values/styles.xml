@@ -38,6 +38,12 @@
         <item name="textAllCaps">true</item>
     </style>
 
+    <style name="SendMessageTextStyle" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/color_text_dark</item>
+        <item name="android:textSize">@dimen/send_message_text_size</item>
+        <item name="android:textColorHint">@color/color_text_gray</item>
+    </style>
+
     <style name="NavigationTheme" parent="@style/Widget.Design.NavigationView">
         <item name="android:itemTextAppearance">@style/NavigationMenuTextAppearance</item>
     </style>
@@ -83,6 +89,57 @@
     <style name="DateListItem" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textSize">@dimen/list_item_date_size</item>
         <item name="android:textColor">@color/color_text_gray</item>
+    </style>
+
+    <style name="MessageCardStyle" parent="Theme.AppCompat.Light">
+        <item name="cardCornerRadius">@dimen/message_card_corner_radius</item>
+        <item name="cardElevation">@dimen/message_card_elevation</item>
+        <item name="android:layout_marginTop">@dimen/message_card_padding_vertical</item>
+        <item name="android:layout_marginBottom">@dimen/message_card_padding_vertical</item>
+        <item name="android:layout_marginLeft">@dimen/message_card_padding_horizontal</item>
+        <item name="android:layout_marginRight">@dimen/message_card_padding_horizontal</item>
+        <item name="contentPadding">@dimen/message_card_padding_content</item>
+        <item name="android:minWidth">@dimen/message_card_min_width</item>
+        <item name="android:maxWidth">@dimen/message_card_max_width</item>
+    </style>
+
+    <style name="PlaceCardStyle" parent="Theme.AppCompat.Light">
+        <item name="cardElevation">@dimen/message_card_elevation</item>
+        <item name="android:layout_marginTop">@dimen/message_card_padding_vertical</item>
+        <item name="android:layout_marginBottom">@dimen/message_card_padding_vertical</item>
+        <item name="contentPadding">@dimen/message_card_padding_content</item>
+        <item name="android:background">?android:selectableItemBackground</item>
+    </style>
+
+    <style name="MessageTextStyle" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/message_text_size</item>
+        <item name="android:textColor">@color/color_text_dark</item>
+    </style>
+
+    <style name="MessageCountTextStyle" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">@dimen/message_count_text_size</item>
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+
+    <style name="PlaceTitleStyle" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/color_text_dark</item>
+        <item name="android:textSize">@dimen/place_title_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PlaceBodyStyle" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/color_text_dark</item>
+        <item name="android:textSize">@dimen/place_body_text_size</item>
+    </style>
+
+    <style name="PlaceDistanceStyle" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/color_text_gray</item>
+        <item name="android:textSize">@dimen/header_text_username_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
     </style>
 
 </resources>

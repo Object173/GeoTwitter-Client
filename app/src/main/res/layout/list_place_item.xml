@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style = "@style/PlaceCardStyle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/author_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/list_item_margin"
+                android:layout_marginRight="@dimen/list_item_margin"
+                android:clickable="true"
+                android:background="?android:selectableItemBackground">
+
+                <com.object173.geotwitter.gui.views.CircleImageView
+                    android:id="@+id/avatar_view"
+                    android:layout_width="@dimen/small_avatar_size"
+                    android:layout_height="@dimen/small_avatar_size"
+                    android:src="@mipmap/avatar"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/list_item_margin"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/username_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        style = "@style/TitleListItem"
+                        android:text="Ярослав"/>
+
+                    <TextView
+                        android:id="@+id/date_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        style = "@style/SubtitleListItem"
+                        android:text="Какое-то новое сообщение оченьasd"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/distance_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:maxLines="1"
+                    style = "@style/PlaceDistanceStyle"
+                    android:text="300м"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.object173.geotwitter.gui.views.ProportionalImageView
+                    android:id="@+id/place_image"
+                    android:layout_width="@dimen/place_item_image_size"
+                    android:layout_height="@dimen/place_item_image_size"
+                    android:padding="@dimen/list_item_margin"
+                    android:src="@mipmap/ic_image"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="@dimen/list_item_margin">
+
+                    <TextView
+                        android:id="@+id/place_title_field"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        style = "@style/PlaceTitleStyle"
+                        android:text="Title"/>
+
+                    <TextView
+                        android:id="@+id/place_body_field"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:maxLines="2"
+                        style = "@style/PlaceBodyStyle"
+                        android:text="Body"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

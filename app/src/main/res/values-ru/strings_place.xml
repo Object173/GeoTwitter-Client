@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_place_activity_label">Добавить новость</string>
+    <string name="place_activity_label">Новость</string>
+    <string name="place_list_activity_label">Лента новостей</string>
+
+    <string name="place_title_hint">Заголовок</string>
+    <string name="place_body_hint">Описание</string>
+
+    <string name="title_button_edit_location">Изменить местоположение</string>
+    <string name="title_button_remove_location">Удалить местоположение</string>
+
+    <string name="add_place_activity_error_min_length">Минимальная длина </string>
+
+    <string name="add_place_activity_title_image_chooser">Выберите изображение к новости</string>
+
+    <string name="place_distance_m">м</string>
+    <string name="place_distance_km">км</string>
+</resources>

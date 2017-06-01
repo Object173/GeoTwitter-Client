@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialogs_list_fragment_title">Диалоги</string>
+    <string name="contacts_list_fragment_title">Контакты</string>
+    <string name="places_list_fragment_title">Новости</string>
+</resources>

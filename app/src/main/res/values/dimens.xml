@@ -28,7 +28,46 @@
 
     <dimen name="list_item_title_size">20sp</dimen>
     <dimen name="list_item_sub_size">17sp</dimen>
-    <dimen name="list_item_date_size">15sp</dimen>
+    <dimen name="list_item_date_size">12sp</dimen>
 
     <dimen name="medium_progress_bar_size">100dp</dimen>
+
+    <dimen name="send_message_text_size">20sp</dimen>
+    <dimen name="button_small_size">40dp</dimen>
+
+    <dimen name="toolbar_icon_padding">2dp</dimen>
+    <dimen name="toolbar_title_size">25sp</dimen>
+
+    <dimen name="message_card_padding_vertical">5dp</dimen>
+    <dimen name="message_card_padding_horizontal">10dp</dimen>
+    <dimen name="message_card_padding_content">5dp</dimen>
+    <dimen name="message_card_min_width">25dp</dimen>
+    <dimen name="message_card_max_width">250dp</dimen>
+    <dimen name="message_card_elevation">3dp</dimen>
+    <dimen name="message_card_corner_radius">5dp</dimen>
+    <dimen name="message_text_size">15sp</dimen>d
+
+    <dimen name="message_status_icon_size">20dp</dimen>
+    <dimen name="message_status_icon_margin">5dp</dimen>
+
+    <dimen name="message_count_text_size">15sp</dimen>
+
+    <dimen name="message_image_size">250dp</dimen>
+
+    <dimen name="message_map_width">250dp</dimen>
+    <dimen name="message_map_height">150dp</dimen>
+
+    <dimen name="image_list_item_width">75dp</dimen>
+    <dimen name="image_list_item_height">100dp</dimen>
+    <dimen name="image_list_item_margin">5dp</dimen>
+    <dimen name="remove_image_icon_size">25dp</dimen>
+
+    <dimen name="mini_map_height">200dp</dimen>
+
+    <dimen name="place_item_image_size">150dp</dimen>
+    <dimen name="place_title_text_size">20sp</dimen>
+    <dimen name="place_body_text_size">15sp</dimen>
+
+    <dimen name="place_info_body_max_width">125dp</dimen>
+    <dimen name="place_info_max_width">200dp</dimen>
 </resources>

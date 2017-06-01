@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_options">Настройки</string>
+
+    <string name="preference_title_map_category">Карта</string>
+    <string name="preference_title_enabled_sputnik">Карта со спутника</string>
+
+    <string name="preference_title_profile_category">Профиль</string>
+    <string name="preference_title_notifications_category">Уведомления</string>
+
+    <string name="preference_title_load_category">Подзагрузка</string>
+    <string name="preference_title_gps_category">Геолокация</string>
+
+    <string name="preference_title_notifications_enabled">Показывать уведомления</string>
+    <string name="preference_title_notifications_sound_enabled">Проигрывать звук</string>
+    <string name="preference_title_notifications_vibration_enabled">Активность вибрации</string>
+    <string name="preference_title_sound_notifications">Звук уведомлений</string>
+
+    <string name="preference_title_block_size_dialog">Размер блока подзагрузки</string>
+    <string name="preference_summary_block_size_dialog">Выберите размер</string>
+    <string name="preference_summary_block_size">Текущий размер: </string>
+
+    <string name="preference_title_list_size_dialog">Количество кэширумых новостей</string>
+    <string name="preference_summary_list_size_dialog">Выберите размер кэша</string>
+    <string name="preference_summary_list_size">Текущий размер: </string>
+
+    <string name="preference_title_location_enabled">Получать гео данные</string>
+
+    <string name="preference_title_location_timer_dialog">Период обновления координат (сек)</string>
+    <string name="preference_summary_location_timer_dialog">Выберите период обновления</string>
+    <string name="preference_summary_location_timer">Текущий интервыл (сек): </string>
+
+    <string name="preference_title_location_distance_dialog">Дистанция обновления координат (м)</string>
+    <string name="preference_summary_location_distance_dialog">Выберите дистанцию</string>
+    <string name="preference_summary_location_distance">Текущая дистанция(м): </string>
+</resources>

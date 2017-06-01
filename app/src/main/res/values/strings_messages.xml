@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="message_empty_dialog_message">Dialog is empty</string>
+    <string name="message_empty_dialog_date"> </string>
+
+    <string name="message_text_copy">Text success copy</string>
+</resources>

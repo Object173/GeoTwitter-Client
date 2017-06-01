@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_login">Вход</string>
+
+    <string name="prompt_login">Логин</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="prompt_username">Имя пользователя</string>
+    <string name="login_activity_title_sign_in">Авторизация</string>
+    <string name="login_activity_title_register">Регистрация</string>
+    <string name="action_sign_out">Выход</string>
+    <string name="error_invalid_login">Некорректный логин</string>
+    <string name="error_invalid_password">Слишком короткий пароль</string>
+    <string name="error_incorrect_password">Некорректный пароль</string>
+
+    <string name="login_activity_message_user_not_found">Пользователь не найден</string>
+    <string name="login_activity_message_incorrect_password">Некорректный пароль</string>
+    <string name="login_activity_message_wrong_password">Не правильный пароль</string>
+    <string name="login_activity_message_incorrect_login">Некорректный логин</string>
+    <string name="login_activity_message_user_is_exist">Пользователь уже зарегистрирован</string>
+    <string name="login_activity_message_no_internet">Отсутствует соединение с интернетом</string>
+    <string name="login_activity_message_login_exists">Этот логин уже занят</string>
+    <string name="login_activity_message_error_database">Ошибка базы данных</string>
+    <string name="login_activity_message_login_is_short">Минимальный длина логина 5 символов</string>
+    <string name="login_activity_message_error_server">Сервер не отвечает</string>
+
+    <string name="sign_in_fragment_title">Авторизация</string>
+    <string name="register_fragment_title">Регистрация</string>
+
+    <string name="register_fragment_title_image_picker">Выбор аватара пользователя</string>
+</resources>

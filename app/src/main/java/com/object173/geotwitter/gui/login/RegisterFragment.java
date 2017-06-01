@@ -11,14 +11,14 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.object173.geotwitter.R;
-import com.object173.geotwitter.gui.ServiceConnectionController;
 import com.object173.geotwitter.gui.base.MyBaseFragment;
+import com.object173.geotwitter.gui.util.ServiceConnectionController;
 import com.object173.geotwitter.gui.views.CircleImageView;
 import com.object173.geotwitter.server.json.AuthResult;
 import com.object173.geotwitter.service.authorization.AuthService;
 import com.object173.geotwitter.service.authorization.RegisterTask;
 import com.object173.geotwitter.util.resources.CacheManager;
-import com.object173.geotwitter.util.resources.ChooseImageManager;
+import com.object173.geotwitter.util.resources.ChooserManager;
 import com.object173.geotwitter.util.resources.ImagesManager;
 
 /**
@@ -67,7 +67,7 @@ public final class RegisterFragment extends MyBaseFragment
         avatarImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChooseImageManager.showImageChooser(getActivity(),
+                ChooserManager.showImageChooser(getActivity(),
                         getString(R.string.register_fragment_title_image_picker),
                         CacheManager.getImagePath(CACHE_AVATAR));
             }

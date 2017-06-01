@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_map_title_distance">Distance(km):</string>
+    <string name="activity_map_title_period">Period(day):</string>
+
+    <string name="activity_map_message_fail_location">Current location not found</string>
+
+    <integer name="activity_map_distance_min">1</integer>
+    <integer name="activity_map_distance_max">100</integer>
+    <integer name="activity_map_distance_default">10</integer>
+
+    <integer name="activity_map_period_min">1</integer>
+    <integer name="activity_map_period_max">30</integer>
+    <integer name="activity_map_period_default">7</integer>
+</resources>

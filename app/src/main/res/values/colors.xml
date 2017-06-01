@@ -9,6 +9,8 @@
     <color name="color_text_dark">#000000</color>
     <color name="color_text_gray">#777777</color>
 
+    <color name="color_light_gray">#DDDDDD</color>
+
     <color name="toolbar_color">#8BC34A</color>
     <color name="toolbar_text_color">#FFFFFF</color>
     <color name="toolbar_icon_color">#FFFFFF</color>
@@ -26,5 +28,15 @@
 
     <color name="image_viewer_background">#000000</color>
     <color name="transparent_toolbar_color">#66000000</color>
+
+    <color name="send_message_layout_color">#FFFFFF</color>
+
+    <color name="message_card_user_background">#B9DEAB</color>
+    <color name="message_card_companion_background">#FFFFFF</color>
+
+    <color name="light_background">#FFFFFF</color>
+
+    <color name="color_radius_stroke">#8800CC00</color>
+    <color name="color_radius_fill">#2200CC00</color>
 
 </resources>

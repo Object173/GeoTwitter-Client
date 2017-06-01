@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_map_title_distance">Расстояние(км):</string>
+    <string name="activity_map_title_period">Период(дней):</string>
+
+    <string name="activity_map_message_fail_location">Не удалось определить текущее местоположение</string>
+</resources>

@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
@@ -39,24 +38,28 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/color_accent" />
 
-        <activity android:name=".gui.main.MainActivity">
+        <activity
+            android:name=".gui.SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".gui.map.MapActivity" />
+        <activity android:name=".gui.main.MainActivity" />
         <activity
-            android:name=".gui.options.OptionsMenuActivity"
-            android:label="@string/title_activity_options" />
-        <activity android:name=".gui.options.OptionsActivity" />
+            android:name=".gui.options.AccountActivity"
+            android:label="@string/title_activity_account" />
+        <activity
+            android:name=".gui.options.OptionsActivity"
+            android:label="@string/title_activity_settings" />
         <activity
             android:name=".gui.login.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
         <activity
-            android:name=".gui.DeleteImageActivity"
+            android:name=".gui.util.DeleteImageActivity"
             android:label="@string/activity_delete_avatar_label" />
         <activity
             android:name=".gui.profile.ProfilePreferenceActivity"
@@ -65,12 +68,25 @@
             android:name=".gui.contacts.AddContactActivity"
             android:label="@string/activity_add_contact_title" />
         <activity
-            android:name=".gui.contacts.ProfileActivity"
+            android:name=".gui.profile.ProfileActivity"
             android:label="@string/profile_activity_label" />
         <activity
             android:name=".gui.images.ImageViewerActivity"
             android:label="@string/title_activity_image_viewer"
-            android:theme="@style/ImageViewerTheme"/>
+            android:theme="@style/ImageViewerTheme" />
+        <activity
+            android:name=".gui.choose.ChooseContactActivity"
+            android:label="@string/choose_contact_activity_label" />
+        <activity android:name=".gui.messenger.DialogActivity" />
+        <activity
+            android:name=".gui.place.AddPlaceActivity"
+            android:label="@string/add_place_activity_label" />
+        <activity
+            android:name=".gui.place.PlaceActivity"
+            android:label="@string/place_activity_label" />
+        <activity
+            android:name=".gui.place.PlaceListActivity"
+            android:label="@string/place_list_activity_label" />
 
         <service android:name=".service.BaseService" />
         <service android:name=".service.notification.NotificationService">
@@ -83,19 +99,24 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-
         <service android:name=".service.authorization.AuthenticatorService">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
-            <meta-data android:name="android.accounts.AccountAuthenticator"
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
                 android:resource="@xml/authenticator" />
         </service>
 
         <provider
-            android:name = ".database.ContactsProvider"
+            android:name=".database.MyContentProvider"
             android:authorities="com.object173.geotwitter.contacts"
             android:exported="false" />
+
+        <activity
+            android:name=".gui.map.MapsActivity"
+            android:label="@string/title_activity_maps"></activity>
     </application>
 
 </manifest>

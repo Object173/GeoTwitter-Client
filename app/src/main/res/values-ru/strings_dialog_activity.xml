@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_activity_hint_message">Текст сообщения</string>
+    <string name="dialog_activity_message_non_contact">Этот пользователь не добавлен в спиисок контктов</string>
+
+    <string name="dialog_activity_message_image">[Изображение]</string>
+    <string name="dialog_activity_message_marker">[Местоположение]</string>
+
+    <string name="dialog_activity_title_choose_photo">Выберите камеру</string>
+    <string name="dialog_activity_title_choose_image">Выберите источник изображения</string>
+
+    <string name="dialog_activity_menu_photo">Фото</string>
+    <string name="dialog_activity_menu_image">Изображение</string>
+    <string name="dialog_activity_menu_marker">Место</string>
+</resources>

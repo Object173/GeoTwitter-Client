@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_add_contact_title">Добавить контакт</string>
+
+    <string name="message_success_send_invite">Заявка успешно отправлена</string>
+    <string name="message_success_remove_invite">Контакт удален из списка</string>
+</resources>

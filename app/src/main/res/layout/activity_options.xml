@@ -4,8 +4,7 @@
     android:id="@+id/activity_options"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.object173.geotwitter.gui.options.OptionsMenuActivity">
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,9 +15,13 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <FrameLayout
-        android:id="@+id/frame_layout"
+    <fragment
+        android:id="@+id/mainPreferenceFragment"
+        android:name="com.object173.geotwitter.gui.options.OptionsFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        tools:layout="@xml/preferences"
+        android:layout_weight="1">
+    </fragment>
 
 </LinearLayout>

@@ -4,4 +4,11 @@
     <string name="menu_title_item_options">Options</string>
     <string name="menu_title_item_logout">Logout</string>
     <string name="menu_title_item_share">Share</string>
+
+    <string name="menu_title_item_copy">Copy text</string>
+    <string name="menu_title_item_resend">Resend</string>
+    <string name="menu_title_item_cancel">Cancel</string>
+
+    <string name="menu_title_item_send">Send</string>
+    <string name="menu_title_item_account">Account</string>
 </resources>

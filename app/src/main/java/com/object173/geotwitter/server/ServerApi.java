@@ -4,7 +4,11 @@ import com.object173.geotwitter.server.json.AuthData;
 import com.object173.geotwitter.server.json.AuthProfile;
 import com.object173.geotwitter.server.json.AuthResult;
 import com.object173.geotwitter.server.json.AuthToken;
+import com.object173.geotwitter.server.json.DialogJson;
 import com.object173.geotwitter.server.json.Filter;
+import com.object173.geotwitter.server.json.MessageJson;
+import com.object173.geotwitter.server.json.NewPlaceJson;
+import com.object173.geotwitter.server.json.PlaceFilter;
 
 import java.util.List;
 
@@ -16,75 +20,101 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 
 public interface ServerApi {
-    String HOST = "http://37.192.46.135:8443/";
-
-    String AUTH_CONTROLLER = "/auth";
-    String REQUEST_SIGN_IN = AUTH_CONTROLLER + "/sign_in/";
-    String REQUEST_REGISTER = AUTH_CONTROLLER + "/register/";
-
-    String RESOURCES_CONTROLLER = "/resources";
-
-    String PROFILE_CONTROLLER = "/profile";
-    String REQUEST_SET_FCM_TOKEN = PROFILE_CONTROLLER + "/set_fcm_token/";
-    String REQUEST_SET_USERNAME = PROFILE_CONTROLLER + "/set_username/";
-    String REQUEST_SET_STATUS = PROFILE_CONTROLLER + "/set_status/";
-    String REQUEST_SET_PASSWORD = PROFILE_CONTROLLER + "/set_password/";
-    String REQUEST_SET_AVATAR = PROFILE_CONTROLLER + "/set_avatar/";
-    String REQUEST_REMOVE_AVATAR = PROFILE_CONTROLLER + "/remove_avatar/";
-
-    String CONTACTS_CONTROLLER = "/contacts";
-    String REQUEST_GET_ALL_CONTACTS = CONTACTS_CONTROLLER + "/get_all/";
-    String REQUEST_SEND_INVITE = CONTACTS_CONTROLLER + "/send_invite/";
-    String REQUEST_REMOVE_INVITE = CONTACTS_CONTROLLER + "/remove_invite/";
-
-    String ATTR_AVATAR_NAME = "avatar";
-
-    String MEDIA_TYPE_FILE = "multipart/form-data";
-
-    @POST(REQUEST_SIGN_IN)
+    //авторизация пользователя
+    @POST(ServerContract.REQUEST_SIGN_IN)
     Call<AuthResult> signIn(@Body AuthData authData);
-
+    //регистрация пользователя
     @Multipart
-    @POST(REQUEST_REGISTER)
+    @POST(ServerContract.REQUEST_REGISTER)
     Call<AuthResult> register(@Part("authData") AuthData authData, @Part MultipartBody.Part imageFile);
 
     @Multipart
-    @POST(REQUEST_SET_FCM_TOKEN)
+    @POST(ServerContract.REQUEST_SET_FCM_TOKEN)
     Call<Void> refreshFcmToken(@Part("authToken") AuthToken authToken, @Part("fcmToken") String fcmToken);
 
     @Multipart
-    @POST(REQUEST_SET_USERNAME)
+    @POST(ServerContract.REQUEST_SET_USERNAME)
     Call<AuthResult.Result> setUsername(@Part("authToken") AuthToken authToken, @Part("username") String username);
 
     @Multipart
-    @POST(REQUEST_SET_STATUS)
+    @POST(ServerContract.REQUEST_SET_STATUS)
     Call<AuthResult.Result> setStatus(@Part("authToken") AuthToken authToken, @Part("status") String status);
 
     @Multipart
-    @POST(REQUEST_SET_PASSWORD)
+    @POST(ServerContract.REQUEST_SET_PASSWORD)
     Call<AuthResult.Result> setPassword(@Part("authToken") AuthToken authToken,
                                       @Part("oldPassword") String oldPassword, @Part("newPassword") String newPassword);
 
     @Multipart
-    @POST(REQUEST_SET_AVATAR)
+    @POST(ServerContract.REQUEST_SET_AVATAR)
     Call<String> setAvatar(@Part("authToken") AuthToken authToken, @Part MultipartBody.Part avatar);
 
-    @POST(REQUEST_REMOVE_AVATAR)
+    @POST(ServerContract.REQUEST_REMOVE_AVATAR)
     Call<AuthResult.Result> removeAvatar(@Body AuthToken authToken);
 
     @Multipart
-    @POST(REQUEST_GET_ALL_CONTACTS)
+    @POST(ServerContract.REQUEST_GET_ALL_CONTACTS)
     Call<List<AuthProfile>> getAllContacts(@Part("authToken") AuthToken authToken, @Part("filter")Filter filter);
 
     @Multipart
-    @POST(REQUEST_GET_ALL_CONTACTS)
+    @POST(ServerContract.REQUEST_GET_ALL_CONTACTS)
     Call<List<AuthProfile>> getAllContacts(@Part("authToken") AuthToken authToken);
 
     @Multipart
-    @POST(REQUEST_SEND_INVITE)
+    @POST(ServerContract.REQUEST_SEND_INVITE)
         Call<AuthProfile> sendInvite(@Part("authToken") AuthToken authToken, @Part("contactId") long contactId);
 
-@Multipart
-@POST(REQUEST_REMOVE_INVITE)
+    @Multipart
+    @POST(ServerContract.REQUEST_REMOVE_INVITE)
     Call<AuthProfile> removeInvite(@Part("authToken") AuthToken authToken, @Part("contactId") long contactId);
-        }
+
+    @Multipart
+    @POST(ServerContract.REQUEST_GET_DIALOG)
+    Call<DialogJson> getDialog(@Part("authToken") AuthToken authToken, @Part("companionId") long companionId);
+
+    @Multipart
+    @POST(ServerContract.REQUEST_GET_ALL_DIALOGS)
+    Call<List<DialogJson>> getAllDialogs(@Part("authToken") AuthToken authToken);
+
+    @Multipart
+    @POST(ServerContract.REQUEST_GET_MESSAGES)
+    Call<List<MessageJson>> getMessageList(@Part("authToken") AuthToken authToken, @Part("dialogId") long dialogId,
+                                        @Part("filter") Filter filter);
+
+    @Multipart
+    @POST(ServerContract.REQUEST_GET_LAST_MESSAGES)
+    Call<List<MessageJson>> getLastMessages(@Part("authToken") AuthToken authToken, @Part("dialogId") long dialogId,
+                                            @Part("lastId") long lastId);
+
+    @Multipart
+    @POST(ServerContract.REQUEST_SEND_MESSAGE)
+    Call<MessageJson> sendMessage(@Part("authToken") AuthToken authToken, @Part("message") MessageJson message,
+                                  @Part MultipartBody.Part imageFile);
+
+    @Multipart
+    @POST(ServerContract.REQUEST_ADD_PLACE)
+    Call<NewPlaceJson> addPlace(@Part("authToken") AuthToken authToken, @Part("place") NewPlaceJson place,
+                                @Part List<MultipartBody.Part> images);
+
+    @Multipart
+    @POST(ServerContract.REQUEST_GET_LAST_PLACE)
+    Call<List<NewPlaceJson>> getTopPlaces(@Part("authToken") AuthToken authToken, @Part("authorId") long authorId,
+                                           @Part("lastId") long lastId);
+
+    @Multipart
+    @POST(ServerContract.REQUEST_GET_LAST_ALL_PLACE)
+    Call<List<NewPlaceJson>> getTopPlaces(@Part("authToken") AuthToken authToken, @Part("lastId") long lastId);
+
+    @Multipart
+    @POST(ServerContract.REQUEST_GET_LIST_PLACE)
+    Call<List<NewPlaceJson>> getBottomPlaces(@Part("authToken") AuthToken authToken, @Part("authorId") long authorId,
+                                           @Part("filter") Filter filter);
+
+    @Multipart
+    @POST(ServerContract.REQUEST_GET_LIST_ALL_PLACE)
+    Call<List<NewPlaceJson>> getBottomPlaces(@Part("authToken") AuthToken authToken, @Part("filter") Filter filter);
+
+    @Multipart
+    @POST(ServerContract.REQUEST_GET_ALL_PLACE)
+    Call<List<NewPlaceJson>> getAllPlaces(@Part("authToken") AuthToken authToken, @Part("filter") PlaceFilter filter);
+}

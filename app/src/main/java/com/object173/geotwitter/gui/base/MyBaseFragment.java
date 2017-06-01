@@ -5,12 +5,10 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 
-/**
- * Created by Object173
- * on 27.04.2017.
- */
+import com.object173.geotwitter.R;
+import com.object173.geotwitter.server.json.AuthResult;
 
-public class MyBaseFragment extends Fragment {
+public abstract class MyBaseFragment extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +35,15 @@ public class MyBaseFragment extends Fragment {
         if(getView() != null) {
             Snackbar.make(getView(), message, isLong ? Snackbar.LENGTH_LONG : Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show();
+        }
+    }
+
+    protected void showReceiveResult(final AuthResult.Result result) {
+        if(result.equals(AuthResult.Result.NO_INTERNET)) {
+            showSnackbar(R.string.login_activity_message_no_internet, false);
+        } else
+        if(result.equals(AuthResult.Result.FAIL)) {
+            showSnackbar(R.string.login_activity_message_error_server, false);
         }
     }
 }

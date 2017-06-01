@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_card_background">
+
+    <com.object173.geotwitter.gui.views.CircleImageView
+        android:id="@+id/avatar_view"
+        android:layout_width="@dimen/small_avatar_size"
+        android:layout_height="@dimen/small_avatar_size"
+        android:layout_marginLeft="@dimen/list_item_margin"
+        android:src="@mipmap/avatar"
+        android:clickable="true"
+        android:background="?android:selectableItemBackground"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"/>
+
+    <RelativeLayout
+        android:id="@+id/content_field"
+        android:layout_toRightOf ="@+id/avatar_view"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/list_item_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="?android:selectableItemBackground">
+
+        <TextView
+            android:id="@+id/username_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style = "@style/TitleListItem"
+            android:text="Ярослав"/>
+
+        <TextView
+            android:id="@+id/date_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            style = "@style/DateListItem"
+            android:text="06.05.17"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/username_field">
+
+            <TextView
+                android:id="@+id/message_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxLines="1"
+                style = "@style/SubtitleListItem"
+                android:text="Какое-то новое сообщение очень длинное"/>
+
+            <TextView
+                android:id="@+id/unread_count_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/message_field"
+                android:layout_gravity="center_vertical"
+                style="@style/MessageCountTextStyle"
+                android:text = "+ 1"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

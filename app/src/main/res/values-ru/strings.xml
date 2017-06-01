@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GeoTwitter</string>
+
+    <string name="progress_dialog_title_loading">Загрузка</string>
+    <string name="activity_delete_avatar_label">Удалить изображение</string>
+    <string name="title_activity_settings">Настройки</string>
+    <string name="title_activity_account">Аккаунт</string>
+
+    <string name="title_activity_image_viewer">Изображение</string>
+    <string name="title_share_image_chooser">Отправить изображение</string>
+
+    <string name="choose_contact_activity_label">Выбор контакта</string>
+</resources>

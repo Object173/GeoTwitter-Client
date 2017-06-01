@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:theme="@style/ActionBarTheme"
+                app:popupTheme="@style/ActionBarPopupTheme">
+
+                <include layout = "@layout/toolbar_profile_title"/>
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.CoordinatorLayout
+
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:context="com.object173.geotwitter.gui.messenger.DialogActivity">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/send_message_layout_color"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/list_item_margin"
+            android:paddingRight="@dimen/list_item_margin"
+            app:behavior_hideable="true"
+            app:behavior_peekHeight="0dp"
+            app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+            <Button
+                android:id="@+id/photo_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/dialog_activity_menu_photo"
+                android:background="@color/send_message_layout_color"
+                android:drawableLeft="@android:drawable/ic_menu_camera"/>
+
+            <Button
+                android:id="@+id/image_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/dialog_activity_menu_image"
+                android:background="@color/send_message_layout_color"
+                android:drawableLeft="@android:drawable/ic_menu_gallery"/>
+
+            <Button
+                android:id="@+id/marker_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/dialog_activity_menu_marker"
+                android:background="@color/send_message_layout_color"
+                android:drawableLeft="@android:drawable/ic_menu_mapmode"/>
+
+        </LinearLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+        <LinearLayout
+            android:id="@+id/send_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/list_item_margin"
+            android:paddingRight="@dimen/list_item_margin"
+            android:orientation="horizontal"
+            android:background="@color/send_message_layout_color">
+
+            <EditText
+                android:id="@+id/message_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/dialog_activity_hint_message"
+                android:theme="@style/SendMessageTextStyle"
+                android:inputType="textMultiLine"
+                android:maxLines="3"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/attachment_button"
+                android:layout_width="@dimen/button_small_size"
+                android:layout_height="@dimen/button_small_size"
+                android:layout_gravity="bottom"
+                android:src="@mipmap/ic_attachment_black"
+                android:clickable="true"
+                android:background="?android:selectableItemBackground"/>
+
+            <ImageView
+                android:id="@+id/send_button"
+                android:layout_width="@dimen/button_small_size"
+                android:layout_height="@dimen/button_small_size"
+                android:layout_gravity="bottom"
+                android:src="@mipmap/ic_send_black"
+                android:clickable="true"
+                android:background="?android:selectableItemBackground"/>
+
+        </LinearLayout>
+
+    </LinearLayout>

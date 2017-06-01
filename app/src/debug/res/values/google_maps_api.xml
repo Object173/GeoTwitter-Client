@@ -2,4 +2,6 @@
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
         AIzaSyDblw-zSwscsee2INVoBBEeHAIT0Ql3ibU
     </string>
+
+    <integer name="simple_map_default_zoom">15</integer>
 </resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_activity_hint_message">Text message</string>
+    <string name="dialog_activity_message_non_contact">This user is not added to your contact list</string>
+
+    <string name="dialog_activity_message_image">[Image]</string>
+    <string name="dialog_activity_message_marker">[Marker]</string>
+
+    <string name="dialog_activity_title_choose_photo">Choose camera app</string>
+    <string name="dialog_activity_title_choose_image">Choose send image</string>
+
+    <string name="dialog_activity_menu_photo">Photo</string>
+    <string name="dialog_activity_menu_image">Image</string>
+    <string name="dialog_activity_menu_marker">Marker</string>
+</resources>

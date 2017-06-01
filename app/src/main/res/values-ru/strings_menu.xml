@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="menu_title_item_search">Поиск</string>
+    <string name="menu_title_item_options">Настройки</string>
+    <string name="menu_title_item_logout">Выход</string>
+    <string name="menu_title_item_share">Отправить</string>
+
+    <string name="menu_title_item_copy">Копировать текст</string>
+    <string name="menu_title_item_resend">Повторить</string>
+    <string name="menu_title_item_cancel">Отменить</string>
+
+    <string name="menu_title_item_send">Отправить</string>
+    <string name="menu_title_item_account">Аккаунт</string>
+</resources>

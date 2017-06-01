@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="@string/profile_activity_title_username">
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/username_field"
+                    android:title="@string/profile_activity_title_username"/>
+            </group>
+        </menu>
+    </item>
+    <item
+        android:title="@string/profile_activity_title_status">
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/status_field"
+                    android:title=""
+                    app:actionLayout = "@layout/menu_text_view"/>
+            </group>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/place_list_field"
+        android:icon="@android:drawable/ic_menu_set_as"
+        android:title="@string/profile_activity_title_place_list"/>
+
+</menu>
